@@ -3,8 +3,21 @@
         <title>Javascript</title>
     </head>
     <body>
+
+        <div id="app">
+
+        </div>
+
         <script>
-            console.log("Hello Word!");
+            var linkElement = document.createElement("a");
+            linkElement.setAttribute("href", "http://golby.com.br");
+
+            var textElement = document.createTextNode("Clique aqui!");
+            linkElement.appendChild(textElement);
+
+            var containerElement = document.getElementById("app");
+            containerElement.appendChild(linkElement);
+
         </script>
     </body>
 </html>
