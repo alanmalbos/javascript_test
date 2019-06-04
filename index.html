@@ -5,18 +5,46 @@
     <body>
 
         <div id="app">
-
+            <button id="button">Click Here!</button>
+            
+            
+        
         </div>
 
         <script>
-            var linkElement = document.createElement("a");
-            linkElement.setAttribute("href", "http://golby.com.br");
 
-            var textElement = document.createTextNode("Clique aqui!");
-            linkElement.appendChild(textElement);
+            var button = document.getElementById("button");
+            var appElement = document.getElementById("app");
+            var boxAll;
 
-            var containerElement = document.getElementById("app");
-            containerElement.appendChild(linkElement);
+            button.onclick = function() {criaQuadrado()};
+
+            function criaQuadrado(){
+                
+                var boxElement = document.createElement('div');
+
+                boxElement.style.width = 100;
+                boxElement.style.height = 100;
+                boxElement.style.backgroundColor = '#f00';
+                boxElement.className = "box";
+                boxElement.onmouseover = trocaCor;
+
+                appElement.appendChild(boxElement);
+            }
+
+            function trocaCor(){
+                this.style.backgroundColor = getRandomColor();
+            }
+
+            function getRandomColor() {
+                var letters = "0123456789ABCDEF";
+                var color = "#";
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                    return color;
+            }
+                
 
         </script>
     </body>
